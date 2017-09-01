@@ -1,2 +1,29 @@
-# manifest
-easiest manifest embedding as internal-resource: contains mt.exe + generic manifest + drag&amp;drop batch. drag and drop any amount of exe/sfx/dll/etc... on to the batch file, it will quickly add (or replace the existing manifest) with the generic one, mt.exe is part of Windows-SDK and will correctly write the manifest as a resource. Tools such as ResHacker can work too but I had some file corrupted when using it, so I've reverted to using official manifest tool.
+<h1>manifest</h1>
+<br/>
+<img alt="" src="icon.png" />
+<br/>
+<h3>The Easiest Way of setting a <strong>manifest</strong><br/>
+as an <strong>embedded resource</strong> into your execute or library.</h3>
+<br/>
+
+This repository contains:
+<ul>
+<li><code>mt.exe</code> - Microsoft Manifest Tool v5.2.3790.2076 (from WinSDK 7.1), It is the 32bit version by it will works just fine for 64bit apps too</li>
+<li><code>generic.manifest</code> - A generic manifest that only has the important compability section, running permissions and few settings to enable. It can be safely embedded in both execute/library files. It does not contain the identify-assembly or any file-specific details.</li>
+<li><code>add_manifest.cmd</code> - drag&amp;drop your exe/sfx/dll files over this batch file.</li>
+</ul>
+
+<hr/>
+
+How to use - Example:
+<ol>
+<li>Download <a href="https://github.com/mcmilk/7-Zip-zstd/releases/">7-Zip-zstd</a></li>
+<li>Once downloaded, extracted on to your desktop and inspected you've found out that exe, sfx and dll file are lacking any <code>manifest</code>.</li>
+<li>Download <a href="https://github.com/eladkarako/manifest/archive/master.zip">github.com/eladkarako/manifest/archive/master.zip</a> and extract on to your desktop.</li>
+<li>select all the exe, sfx and dll files together, in the <code>7-Zip-zstd</code> folder, then - drag&amp;drop them over <code>add_manifest.cmd</code></li>
+<li>Done.<br/>Each of the files will now have this manifest as an internal-resource (RES-24).</li>
+</ol>
+
+Note that any existing manifest resource will be overwritten with the generic-one,<br/>
+so either make a backup of the manifest or the exe itself.
+
