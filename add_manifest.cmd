@@ -32,13 +32,13 @@ echo is a file
 ::-------------------------------------------------------------------------------------------
 ::-------------------------------------------------------------------------------------------
 
-set FILE_INPUT=%~s1
-set FILE_EXT=%~x1
+set "FILE_INPUT=%~1"
+set "FILE_EXT=%~x1"
 
-set RUN_CMD=%FILE_MT% -nologo -manifest %FILE_MANIFEST% -outputresource:%FILE_INPUT%;1
+set RUN_CMD=%FILE_MT% -nologo -manifest %FILE_MANIFEST% -outputresource:"%FILE_INPUT%";1
 
 if /i ["%FILE_EXT%"] == [".dll"] ( 
-  set RUN_CMD=%FILE_MT% -nologo -manifest %FILE_MANIFEST% -outputresource:%FILE_INPUT%;2
+  set RUN_CMD=%FILE_MT% -nologo -manifest %FILE_MANIFEST% -outputresource:"%FILE_INPUT%";2
 )
 
 echo %RUN_CMD%
