@@ -13,6 +13,9 @@ if ["%~1"]==[""] (
   echo done.
   goto END;
 )
+
+echo "%~1"
+
 ::argument exist ?
 if not exist %~s1 (
   echo not exist
@@ -38,6 +41,7 @@ if /i ["%FILE_EXT%"] == [".dll"] (
   set RUN_CMD=%FILE_MT% -nologo -manifest %FILE_MANIFEST% -outputresource:%FILE_INPUT%;2
 )
 
+echo %RUN_CMD%
 call %RUN_CMD%
 
 ::-------------------------------------------------------------------------------------------
