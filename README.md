@@ -27,3 +27,8 @@ How to use - Example:
 Note that any existing manifest resource will be overwritten with the generic-one,<br/>
 so either make a backup of the manifest or the exe itself.
 
+<hr/>
+
+if DPI-Awareness is giving you a bad time,<br/>
+you can rename <code>generic_alternative_no_dpi_awareness.manifest</code> to <code>generic.manifest</code>,<br/>
+it will set the older <code>dpiAware</code>, the newer (used in Windows 10): <code>dpiAwareness</code> and a DPI based text-scaling all to <strong>false</strong>.
