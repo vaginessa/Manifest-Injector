@@ -5,7 +5,12 @@ chcp 65001 2>nul >nul
 
 ::                                                        external resources (path normalised)
 set FILE_MANIFEST="%~dp0generic.manifest"
-set FILE_MT="%~dp0mt.exe"
+set FILE_MT="%~dp0mt\32bit\mt.exe"
+if ["%PROCESSOR_ARCHITECTURE%"] == ["AMD64"] (
+  set FILE_MT="%~dp0mt\64bit\mt.exe"
+)
+
+
 for /f %%a in ("%FILE_MANIFEST%")do ( set "FILE_MANIFEST=%%~fsa"  )
 for /f %%a in ("%FILE_MT%")do       ( set "FILE_MT=%%~fsa"        )
 
